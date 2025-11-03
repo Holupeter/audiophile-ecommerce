@@ -1,5 +1,5 @@
 // src/data/types.ts
-import { Product }D from "./products";
+import { Product } from "./products";
 
 export type CartItem = {
   product: Product;
