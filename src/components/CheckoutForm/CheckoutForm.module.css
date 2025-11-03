@@ -1,0 +1,188 @@
+/* --- Base Styles --- */
+.form {
+  width: 100%;
+}
+
+.title {
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 32px; /* Space between fieldsets */
+}
+
+.legend {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--color-brand-raw-sienna);
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column */
+  gap: 24px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.formField label {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.formField input {
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 18px 24px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+}
+
+.formField input::placeholder {
+  opacity: 0.4;
+}
+
+.formField input:focus {
+  outline: none;
+  border-color: var(--color-brand-raw-sienna);
+  box-shadow: 0 0 0 1px var(--color-brand-raw-sienna);
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .title {
+    font-size: 32px;
+    letter-spacing: 1.1px;
+    margin-bottom: 41px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+  }
+
+  .fullWidth {
+    /* Special class for the 'Address' field */
+    grid-column: 1 / -1; /* Span full width */
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  /* No new styles needed for the form,
+     the page layout already handled it! */
+}
+
+/* --- Payment Method Styles --- */
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 18px 24px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.radioLabel:hover {
+  border-color: var(--color-brand-raw-sienna);
+}
+
+.radioLabel.radioChecked {
+  border-color: var(--color-brand-raw-sienna);
+  box-shadow: 0 0 0 1px var(--color-brand-raw-sienna);
+}
+
+/* Hide the default radio button */
+.radioLabel input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+  outline: none;
+  position: relative;
+}
+
+/* Create the custom radio circle */
+.radioLabel.radioChecked input[type="radio"] {
+  border-color: var(--color-brand-raw-sienna);
+}
+
+/* Create the custom radio dot */
+.radioLabel.radioChecked input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-brand-raw-sienna);
+}
+
+/* Space for conditional fields */
+.eMoneyFields {
+  margin-top: 24px;
+}
+
+.cashMessage {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cashMessage p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .formField label {
+    /* This is a special case from Figma */
+    /* Payment Method label should not be in the grid */
+  }
+
+  /* This is a CSS grid trick */
+  fieldset:nth-of-type(3) .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Make Payment Method label span column 1 */
+  fieldset:nth-of-type(3) .grid .formField {
+    grid-column: 1 / 2;
+  }
+
+  /* Make Radio Group span column 2 */
+  fieldset:nth-of-type(3) .grid .radioGroup {
+    grid-column: 2 / 3;
+    margin-top: -9px; /* Align with label */
+  }
+}

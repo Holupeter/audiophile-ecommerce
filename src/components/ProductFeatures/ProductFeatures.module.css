@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stacked on mobile */
+  gap: 88px;
+  margin-bottom: 88px;
+}
+
+.title {
+  font-size: 24px;
+  letter-spacing: 0.8px;
+  margin-bottom: 24px;
+}
+
+.featureText {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+/* Add space between feature paragraphs */
+.featureText:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.includesList li {
+  display: flex;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.quantity {
+  color: var(--color-brand-raw-sienna);
+  font-weight: 700;
+  margin-right: 24px;
+}
+
+.item {
+  opacity: 0.5;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .title {
+    font-size: 32px;
+    letter-spacing: 1.1px;
+    margin-bottom: 32px;
+  }
+
+  .inTheBox {
+    display: flex; /* Creates horizontal layout */
+    flex-direction: column;
+  }
+  
+  /* On tablet, we want title on left, list on right */
+  @supports (display: grid) {
+    .inTheBox {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row; /* Side-by-side */
+    gap: 125px;
+  }
+  
+  .features {
+    width: 60%;
+  }
+
+  .inTheBox {
+    width: 40%;
+    flex-shrink: 0;
+    display: flex; /* Back to flex column */
+    flex-direction: column;
+  }
+}

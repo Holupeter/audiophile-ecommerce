@@ -1,0 +1,58 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.details {
+  flex-grow: 1;
+  margin-right: auto;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.quantitySelector {
+  background-color: var(--color-grey-medium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px;
+  width: 96px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.quantitySelector button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.25;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+}
+
+.quantitySelector button:hover {
+  opacity: 1;
+  color: var(--color-brand-raw-sienna);
+}
+
+.quantitySelector span {
+  font-size: 13px;
+  font-weight: 700;
+}

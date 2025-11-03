@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Manrope} from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Header/Footer";
+import { CartProvider } from "@/context/CartContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Configure the font
+const manrope = Manrope({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap", 
+  variable: "--font-manrope", 
 });
 
 export const metadata: Metadata = {
@@ -24,8 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={manrope.variable}>
+        <CartProvider> {/* --- Add this opening tag --- */}
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider> {/* --- Add this closing tag --- */}
       </body>
     </html>
   );

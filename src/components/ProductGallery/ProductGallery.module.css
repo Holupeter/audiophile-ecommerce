@@ -1,0 +1,51 @@
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stacked on mobile */
+  gap: 20px;
+  margin-bottom: 120px;
+}
+
+/* This is a common pattern for responsive images in a grid */
+.gallery picture {
+  width: 100%;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: 40% 1fr; /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    /* This is the magic! */
+    grid-template-areas:
+      "small-1 large-1"
+      "small-2 large-1";
+    gap: 20px;
+  }
+
+  /* Assign images to grid areas */
+  .galleryImage1 {
+    grid-area: small-1;
+  }
+  .galleryImage2 {
+    grid-area: small-2;
+  }
+  .galleryImage3 {
+    grid-area: large-1;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .gallery {
+    gap: 30px;
+    margin-bottom: 160px;
+  }
+}

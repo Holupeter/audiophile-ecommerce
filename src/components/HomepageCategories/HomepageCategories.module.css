@@ -1,0 +1,98 @@
+.section {
+  width: 100%;
+  padding-top: 120px; /* Space above */
+  padding-bottom: 120px; /* Space below */
+}
+
+.container {
+  width: 100%;
+  padding-left: var(--padding-container-mobile);
+  padding-right: var(--padding-container-mobile);
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 68px; /* Space between cards */
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-grey-medium);
+  border-radius: 8px;
+  text-align: center;
+  padding-bottom: 22px;
+  position: relative; /* Needed for image positioning */
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.imageWrapper {
+  width: 100%;
+  /* This pushes the image up so it overlaps the top edge */
+  margin-top: -52px; 
+  margin-bottom: 20px;
+}
+
+.productImage {
+  margin: 0 auto; /* Center the image */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  /* This ensures the image isn't too big */
+  max-height: 140px; 
+  object-fit: contain;
+}
+
+.title {
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 17px;
+}
+
+.shopLink {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-black);
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .shopLink {
+  color: var(--color-brand-raw-sienna);
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+    /* 3 columns on tablet */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+  }
+
+  .section {
+    padding-top: 148px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--padding-container-desktop);
+    padding-right: var(--padding-container-desktop);
+    max-width: 1440px;
+    gap: 30px; /* More space on desktop */
+  }
+
+  .section {
+    padding-top: 200px;
+  }
+
+  .imageWrapper {
+    margin-top: -80px;
+  }
+}

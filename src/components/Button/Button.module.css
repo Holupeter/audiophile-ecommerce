@@ -1,0 +1,72 @@
+.button {
+  /* Base styles for ALL buttons */
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid transparent; /* Base border */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* --- VARIANT STYLES --- */
+
+/* 1. Primary (Orange Button) */
+.primary {
+  background-color: var(--color-brand-raw-sienna);
+  color: var(--color-white);
+  border-color: var(--color-brand-raw-sienna);
+}
+
+.primary:hover {
+  background-color: var(--color-brand-sandy-brown);
+  border-color: var(--color-brand-sandy-brown);
+}
+
+/* 2. Secondary (Bordered Button) */
+.secondary {
+  background-color: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* 3. Tertiary (Text-style Button - for the header) */
+.tertiary {
+  background-color: transparent;
+  color: var(--color-black);
+  padding: 0; /* No padding */
+  opacity: 0.5;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.tertiary:hover {
+  color: var(--color-brand-raw-sienna);
+  opacity: 1;
+}
+
+/* We'll add an arrow for the tertiary button later */
+
+/* 4. Black (Solid Button) */
+.black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.black:hover {
+  background-color: #4C4C4C; /* A dark grey for hover */
+  border-color: #4C4C4C;
+}

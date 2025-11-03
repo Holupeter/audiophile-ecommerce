@@ -1,13 +1,29 @@
+/* 1. Apply the font and a basic CSS reset */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* FONT */
+  --font-main: var(--font-manrope), sans-serif;
+
+  /* COLORS (from Figma) */
+  --color-brand-raw-sienna: #d87d4a;
+  --color-brand-sandy-brown: #fbaf85; /* Lighter orange */
+  --color-black-light: #101010;
+  --color-grey-light: #f1f1f1;
+  --color-grey-medium: #fafafa;
+  --color-grey-dark: #979797;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-error: #cd2c2c;
+
+  /* PADDING */
+  --padding-container-desktop: 165px;
+  --padding-container-tablet: 40px;
+  --padding-container-mobile: 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -17,17 +33,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-black); /* Default text color */
 }
 
 a {
@@ -35,8 +43,24 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-main);
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Default heading styles from Figma */
+  font-weight: 700;
+  text-transform: uppercase;
 }

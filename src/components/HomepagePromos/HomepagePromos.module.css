@@ -1,0 +1,237 @@
+.section {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-left: var(--padding-container-mobile);
+  padding-right: var(--padding-container-mobile);
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Space between promo cards */
+  margin: 0 auto;
+}
+
+/* --- ZX9 Speaker Promo --- */
+.promoCard {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* This is key! */
+  position: relative; /* For positioning children */
+}
+
+.zx9 {
+  background-color: var(--color-brand-raw-sienna);
+  padding: 55px 24px;
+}
+
+.circlePattern {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 550px;
+  z-index: 1;
+}
+
+.zx9Image {
+  width: 100%;
+  max-width: 172px; /* Mobile image size */
+  margin-bottom: 32px;
+  z-index: 2; /* Above the circles */
+}
+.zx9Image img {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  color: var(--color-white);
+  z-index: 2; /* Above the circles */
+  max-width: 280px;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: 1.3px;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+    gap: 32px;
+  }
+  
+  .circlePattern {
+    max-width: 944px;
+    top: -120px;
+  }
+  
+  .zx9Image {
+    max-width: 197px;
+    margin-bottom: 64px;
+  }
+  
+  .content {
+    max-width: 340px;
+  }
+
+  .title {
+    font-size: 56px;
+    line-height: 58px;
+  }
+
+  .description {
+    margin-bottom: 40px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--padding-container-desktop);
+    padding-right: var(--padding-container-desktop);
+    max-width: 1440px;
+    gap: 48px;
+  }
+  
+  .zx9 {
+    flex-direction: row; /* Horizontal layout */
+    text-align: left;
+    padding: 96px 95px 0 118px;
+    height: 560px;
+    gap: 138px;
+    justify-content: center;
+  }
+  
+  .circlePattern {
+    left: -150px;
+    top: -50px;
+    transform: none;
+  }
+  
+  .zx9Image {
+    max-width: 410px;
+    margin-bottom: 0;
+    align-self: flex-end; /* Stick to the bottom */
+  }
+
+  .content {
+    padding-top: 36px; /* Align text nicely */
+    margin: 0;
+    max-width: 350px;
+  }
+}
+
+/* --- ZX7 Speaker Promo --- */
+.zx7 {
+  position: relative; /* For absolute positioning content */
+  height: 320px;
+}
+
+/* This makes the image fill the entire card */
+.promoImageFull {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Position the content on top of the image */
+.zx7 .content {
+  position: absolute;
+  top: 50%;
+  left: var(--padding-container-mobile);
+  transform: translateY(-50%);
+  text-align: left;
+  color: var(--color-black);
+}
+
+.titleSecondary {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+/* --- YX1 Earphones Promo --- */
+.yx1 {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacked on mobile */
+  gap: 24px;
+}
+
+.yx1Image {
+  width: 100%;
+}
+.yx1Image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.yx1Content {
+  background-color: var(--color-grey-medium);
+  border-radius: 8px;
+  padding: 41px 24px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.yx1Content .content {
+  text-align: left;
+  color: var(--color-black);
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .zx7 .content {
+    left: var(--padding-container-tablet);
+  }
+  
+  .yx1 {
+    grid-template-columns: 1fr 1fr; /* 50/50 split */
+    gap: 11px;
+    height: 320px; /* Match ZX7 height */
+  }
+
+  .yx1Content {
+    height: 100%;
+    padding-left: 41px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .zx7 .content {
+    left: 95px; /* Fixed padding from Figma */
+  }
+
+  .yx1 {
+    gap: 30px;
+  }
+
+  .yx1Content {
+    padding-left: 95px;
+  }
+}
+
+

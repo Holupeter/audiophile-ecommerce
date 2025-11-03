@@ -1,0 +1,32 @@
+.productList {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--padding-container-mobile);
+}
+
+.sharedSections {
+  /* We need to adjust the padding on these shared sections */
+  /* when they're on a category page */
+  padding-top: 120px;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .productList {
+    padding: 0 var(--padding-container-tablet);
+  }
+  .sharedSections {
+    padding-top: 120px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .productList {
+    padding: 0 var(--padding-container-desktop);
+  }
+  .sharedSections {
+    padding-top: 160px;
+  }
+}

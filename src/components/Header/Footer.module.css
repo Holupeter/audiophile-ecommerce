@@ -1,0 +1,202 @@
+/* --- Base Styles (Mobile-First) --- */
+.footer {
+  background-color: var(--color-black-light);
+  color: var(--color-white);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 52px;
+  padding-bottom: 38px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center everything on mobile */
+  text-align: center;
+  padding-left: var(--padding-container-mobile);
+  padding-right: var(--padding-container-mobile);
+}
+
+/* The orange decorative line */
+.line {
+  width: 101px;
+  height: 4px;
+  background-color: var(--color-brand-raw-sienna);
+  margin-bottom: 48px;
+  
+}
+
+.logoLink {
+  margin-bottom: 48px;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.nav a {
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--color-brand-raw-sienna);
+}
+
+.description {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.5;
+  margin-bottom: 48px;
+}
+
+.copyright {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+  opacity: 0.5;
+  margin-bottom: 48px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 16px;
+}
+
+.socialLinks a {
+  transition: filter 0.3s ease;
+}
+
+/* Add a hover effect for social icons */
+.socialLinks a:hover {
+  /* This filter creates an orange tint */
+  filter: brightness(0) saturate(100%) invert(62%) sepia(35%) saturate(1065%)
+    hue-rotate(334deg) brightness(92%) contrast(89%);
+}
+
+/* Hide these elements on mobile */
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .container {
+    align-items: flex-start; /* Align left on tablet */
+    text-align: left;
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+    max-width: 1440px; /* Use max-width for consistency */
+  }
+
+  .line {
+    margin-bottom: 56px;
+  }
+
+  .topSection {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .logoLink {
+    margin-bottom: 32px;
+  }
+
+  .nav ul {
+    flex-direction: row; /* Horizontal links */
+    gap: 34px;
+    margin-bottom: 32px;
+  }
+
+  .description {
+    margin-bottom: 80px;
+    max-width: 690px; /* Limit description width */
+  }
+
+  .bottomSection {
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .copyright {
+    margin-bottom: 0;
+  }
+
+  .socialLinks {
+    /* Social links are pushed up to be on the same line as copyright */
+    /* This negative margin is a common trick to align items */
+    margin-top: -80px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--padding-container-desktop);
+    padding-right: var(--padding-container-desktop);
+    max-width: 1440px;
+    position: relative; /* KEY: This is the anchor for the line */
+    align-items: flex-start; /* KEY: Overrides mobile's "center" */
+      
+}
+
+  .line {
+    position: absolute; /* KEY: Takes the line out of the flow */
+    top: 0; /* KEY: Sticks it to the top... */
+    left: var(--padding-container-desktop); /* KEY: ...of the container */
+    margin-bottom: 0; /* Reset mobile margin */
+  }
+
+  .footer {
+    padding-top: 75px;
+    padding-bottom: 48px;
+  }
+
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  .logoLink {
+    margin-bottom: 0;
+  }
+
+  .nav ul {
+    margin-bottom: 0;
+  }
+
+  .description {
+    max-width: 540px;
+    margin-bottom: 56px;
+  }
+
+  .socialLinks {
+    margin-top: 0;
+    position: absolute;
+    right: var(--padding-container-desktop);
+    bottom: 125px; 
+  }
+}

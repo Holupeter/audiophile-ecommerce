@@ -1,0 +1,250 @@
+/* --- Base Styles (Mobile-First) --- */
+
+.header {
+  background-color: var(--color-black-light);
+  width: 100%;
+  height: 90px;
+  position: relative; /* For the underline */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Make sure it's on top of other content */
+}
+
+/* This adds the thin grey line below the header */
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-dark);
+  opacity: 0.2;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* Use the padding variables we defined in globals.css */
+  padding-left: var(--padding-container-mobile);
+  padding-right: var(--padding-container-mobile);
+}
+
+/* By default, HIDE the main navigation */
+.nav {
+  display: none;
+}
+
+/* Style the buttons */
+.hamburgerBtn,
+.cartBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+  }
+
+  /* HIDE the hamburger button on tablets */
+  .hamburgerBtn {
+    display: none;
+  }
+
+  /* SHOW the navigation on tablets */
+  .nav {
+    display: block;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 34px; /* Space between links */
+  }
+
+  .nav a {
+    color: var(--color-white);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .nav a:hover {
+    color: var(--color-brand-raw-sienna);
+  }
+
+  /* On tablet, the logo is no longer first. We use order to rearrange */
+  .logoLink {
+    order: 2;
+    /* Remove default left margin from hamburger */
+    margin-left: 0;
+  }
+
+  .cartBtn {
+    order: 3;
+    margin-left: auto; /* Push cart to the far right */
+}
+
+  .nav {
+    order: 1;
+    margin-right: auto; /* Push nav to the far left */
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--padding-container-desktop);
+    padding-right: var(--padding-container-desktop);
+    max-width: 1440px; /* Max width from Figma */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Adjust header line to not be full-width */
+  .header::after {
+    width: calc(100% - (var(--padding-container-desktop) * 2));
+    max-width: 1110px; /* Max content width from Figma */
+  }
+
+  /* On desktop, logo and nav are grouped */
+  .logoLink {
+    order: 1;
+    margin-right: 197px; /* Space between logo and nav */
+  }
+
+  .nav {
+    order: 2;
+    margin-right: 0; /* Reset margin */
+  }
+
+  .cartBtn {
+    order: 3;
+    margin-left: auto; /* Keep cart to the right */
+  }
+}
+
+/* --- Cart Count Badge --- */
+.cartCount {
+  position: absolute;
+  top: -10px;    /* Position it above the icon */
+  right: -12px;   /* Position it to the right */
+  background-color: var(--color-brand-raw-sienna);
+  color: var(--color-white);
+  border-radius: 50%; /* Make it a circle */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* --- Cart Modal & Overlay --- */
+.overlay {
+  position: fixed;
+  top: 90px; /* Start below header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+}
+
+.cartModal {
+  position: absolute;
+  top: 110px; /* 20px below header */
+  right: var(--padding-container-mobile);
+  width: calc(100% - (var(--padding-container-mobile) * 2));
+  max-width: 380px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 32px;
+  z-index: 50;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  letter-spacing: 1.3px;
+}
+
+.removeAllBtn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.5;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.removeAllBtn:hover {
+  color: var(--color-brand-raw-sienna);
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.totalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.totalLabel {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
+.totalPrice {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* We need to select the button from the Button component */
+.cartModal > a[class*="Button_button"] {
+  width: 100%;
+}
+
+.emptyMessage {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.5;
+  padding: 24px 0;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .cartModal {
+    right: var(--padding-container-tablet);
+    width: 380px;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .cartModal {
+    right: var(--padding-container-desktop);
+  }
+}
