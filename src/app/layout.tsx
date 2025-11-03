@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Header/Footer";
 import { CartProvider } from "@/context/CartContext";
+import ConvexClientProvider from "@/providers/ConvexClientProvider";
 
 // Configure the font
 const manrope = Manrope({
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.variable}>
-        <CartProvider> {/* --- Add this opening tag --- */}
-          <Header />
-          {children}
-          <Footer />
-        </CartProvider> {/* --- Add this closing tag --- */}
+        <ConvexClientProvider>
+         <CartProvider> 
+           <Header />
+           {children}
+           <Footer />
+         </CartProvider> 
+        </ConvexClientProvider>
       </body>
     </html>
   );

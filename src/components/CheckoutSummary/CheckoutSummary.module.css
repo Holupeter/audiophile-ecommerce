@@ -10,16 +10,89 @@
   margin-bottom: 32px;
 }
 
-.placeholder {
+/* --- Item List --- */
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.itemImage {
+  border-radius: 8px;
+}
+
+.itemDetails {
+  flex-grow: 1;
+  margin-right: auto;
+}
+
+.itemName {
   font-size: 15px;
+  font-weight: 700;
+}
+
+.itemPrice {
+  font-size: 14px;
+  font-weight: 700;
   opacity: 0.5;
+}
+
+.itemQuantity {
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+/* --- Totals List --- */
+.totalsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalLabel {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.totalValue {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.grandTotal {
+  margin-top: 16px;
+}
+.grandTotal .totalValue {
+  color: var(--color-brand-raw-sienna);
+}
+
+.emptyMessage {
+  font-size: 15px;
+  font-weight: 700;
   text-align: center;
+  opacity: 0.5;
   padding: 24px 0;
   margin-bottom: 32px;
 }
 
 .submitButton {
-  /* Use the same styles as our primary button */
   background-color: var(--color-brand-raw-sienna);
   color: var(--color-white);
   border: 1px solid var(--color-brand-raw-sienna);
@@ -30,7 +103,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%; /* Make it full width */
+  width: 100%;
 }
 
 .submitButton:hover {

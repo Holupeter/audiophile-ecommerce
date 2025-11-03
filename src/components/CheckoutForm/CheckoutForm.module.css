@@ -61,30 +61,6 @@
   box-shadow: 0 0 0 1px var(--color-brand-raw-sienna);
 }
 
-/* --- Tablet Styles --- */
-@media (min-width: 768px) {
-  .title {
-    font-size: 32px;
-    letter-spacing: 1.1px;
-    margin-bottom: 41px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr 1fr; /* 2 columns */
-  }
-
-  .fullWidth {
-    /* Special class for the 'Address' field */
-    grid-column: 1 / -1; /* Span full width */
-  }
-}
-
-/* --- Desktop Styles --- */
-@media (min-width: 1024px) {
-  /* No new styles needed for the form,
-     the page layout already handled it! */
-}
-
 /* --- Payment Method Styles --- */
 .radioGroup {
   display: flex;
@@ -163,11 +139,45 @@
   opacity: 0.5;
 }
 
+/* --- Validation & Error Styles --- */
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.errorMessage {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-error);
+}
+
+.errorInput {
+  border-color: var(--color-error) !important; /* Force override */
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+/* Make error labels red too */
+.formField input.errorInput + label,
+.formField:has(input.errorInput) label {
+  color: var(--color-error);
+}
+
 /* --- Tablet Styles --- */
 @media (min-width: 768px) {
-  .formField label {
-    /* This is a special case from Figma */
-    /* Payment Method label should not be in the grid */
+  .title {
+    font-size: 32px;
+    letter-spacing: 1.1px;
+    margin-bottom: 41px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+  }
+
+  .fullWidth {
+    /* Special class for the 'Address' field */
+    grid-column: 1 / -1; /* Span full width */
   }
 
   /* This is a CSS grid trick */
@@ -185,4 +195,10 @@
     grid-column: 2 / 3;
     margin-top: -9px; /* Align with label */
   }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  /* No new styles needed for the form,
+     the page layout already handled it! */
 }
