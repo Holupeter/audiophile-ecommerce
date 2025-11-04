@@ -120,7 +120,7 @@ export const sendOrderConfirmationEmail = action({
                     </p>
                   </div>
                   
-                  <a href="https://your-deployed-site-link.com" class="button" style="display: inline-block; padding: 12px 20px; margin-top: 20px; background-color: #D87D4A; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                  <a href="https://orion-audiophile-ecommerce.netlify.app/" class="button" style="display: inline-block; padding: 12px 20px; margin-top: 20px; background-color: #D87D4A; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">
                     View Your Order
                   </a>
                   
