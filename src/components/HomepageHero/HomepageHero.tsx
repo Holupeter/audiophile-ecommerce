@@ -12,7 +12,7 @@ export default function HomepageHero() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button href="/headphones/xx99-mark-two" variant="primary">
+          <Button href="/headphones/xx99-mark-two-headphones" variant="primary">
             See Product
           </Button>
         </div>
