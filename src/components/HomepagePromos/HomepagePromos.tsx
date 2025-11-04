@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 import styles from "./HomepagePromos.module.css";
+import { productData } from "@/data/products";
+
+// Helper to find the category for a given slug
+function getProductCategory(slug: string) {
+  const product = productData.find((p) => p.slug === slug);
+  return product ? product.category : "";
+}
 
 export default function HomepagePromos() {
   return (
@@ -44,7 +51,7 @@ export default function HomepagePromos() {
               deliver truly remarkable sound.
             </p>
             {/* Here's our new button! */}
-            <Button href="/speakers/zx9" variant="black">
+            <Button href={`/${getProductCategory("zx9-speaker")}/zx9-speaker`} variant="black">
               See Product
             </Button>
           </div>
@@ -73,7 +80,7 @@ export default function HomepagePromos() {
           <div className={styles.content}>
             <h2 className={styles.titleSecondary}>ZX7 Speaker</h2>
             {/* Here we use our 'secondary' button! */}
-            <Button href="/speakers/zx7" variant="secondary">
+            <Button href={`/${getProductCategory("zx7-speaker")}/zx7-speaker`} variant="secondary">
               See Product
             </Button>
           </div>
@@ -102,7 +109,7 @@ export default function HomepagePromos() {
           <div className={styles.yx1Content}>
             <div className={styles.content}>
               <h2 className={styles.titleSecondary}>YX1 Earphones</h2>
-              <Button href="/earphones/yx1" variant="secondary">
+              <Button href={`/${getProductCategory("yx1-earphones")}/yx1-earphones`} variant="secondary">
                 See Product
               </Button>
             </div>
