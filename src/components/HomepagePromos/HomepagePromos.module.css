@@ -38,6 +38,53 @@
   z-index: 1;
 }
 
+.zx9::before,
+.zx9::after,
+.zx9 .circlePattern {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("/assets/shared/pattern-circles.svg"); /* Path to your single pattern image */
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+}
+
+/* 1. Outermost Circle (Faintest) */
+.zx9::before {
+  content: '';
+  width: 558px; /* Largest size */
+  height: 558px;
+  opacity: 0.05;
+  top: -100px; /* Adjust vertical positioning */
+}
+
+/* 2. Middle Circle */
+.zx9::after {
+  content: '';
+  width: 480px; /* Medium size */
+  height: 480px;
+  opacity: 0.1;
+  top: -70px; /* Adjust vertical positioning */
+}
+
+/* 3. Innermost Circle (Most visible) - We repurpose the original div */
+.zx9 .circlePattern {
+  width: 320px; /* Smallest size */
+  height: 320px;
+  opacity: 0.2;
+  top: -40px; /* Adjust vertical positioning */
+}
+
+/* Ensure content is above the background circles */
+.zx9Image,
+.zx9 .content {
+  z-index: 2;
+  position: relative; /* Ensure stacking context */
+}
+
 .zx9Image {
   width: 100%;
   max-width: 172px; /* Mobile image size */
@@ -82,6 +129,33 @@
     max-width: 944px;
     top: -120px;
   }
+
+  .zx9::before,
+  .zx9::after,
+  .zx9 .circlePattern {
+    top: -120px; /* Consistent top position */
+    left: 50%;
+    transform: translateX(-50%);
+    /* This will center the circles behind the speaker image */
+    /* You may need to tweak the `left` value to align with the speaker */
+  }
+
+  /* Specific sizes for tablet */
+  .zx9::before {
+    width: 650px; /* Tweak these widths to match Figma circles on tablet */
+    height: 650px;
+    top: -150px;
+  }
+  .zx9::after {
+    width: 550px; 
+    height: 550px;
+    top: -100px;
+  }
+  .zx9 .circlePattern {
+    width: 450px; 
+    height: 450px;
+    top: -50px;
+  }
   
   .zx9Image {
     max-width: 197px;
@@ -124,6 +198,32 @@
     left: -150px;
     top: -50px;
     transform: none;
+  }
+
+  .zx9::before,
+  .zx9::after,
+  .zx9 .circlePattern {
+    top: -50px; /* Move circles up */
+    left: 150px; /* Shift the center of the circles to the left */
+    transform: none; /* Remove centering transform */
+    max-width: 944px; /* Limit max size */
+  }
+
+  /* Adjust sizes for desktop */
+  .zx9::before {
+    width: 944px; /* Largest size */
+    height: 944px;
+    top: -100px;
+  }
+  .zx9::after {
+    width: 800px; 
+    height: 800px;
+    top: -50px;
+  }
+  .zx9 .circlePattern {
+    width: 650px; 
+    height: 650px;
+    top: 0px;
   }
   
   .zx9Image {
