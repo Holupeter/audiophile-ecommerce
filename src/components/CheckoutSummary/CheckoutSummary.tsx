@@ -9,12 +9,11 @@ import styles from "./CheckoutSummary.module.css";
 export default function CheckoutSummary() {
   const { cartItems, totalPrice, cartCount } = useCart();
 
-  // --- Corrected variables ---
-  // Calculate VAT (tax)
+  
   const calculatedVat = totalPrice * VAT_RATE;
-  // Calculate the final total
-  const grandTotal = totalPrice + SHIPPING_FEE;
-  // --- End of corrections ---
+  
+  const grandTotal = totalPrice + SHIPPING_FEE + calculatedVat;
+  
 
   return (
     <div className={styles.summary}>
