@@ -4,7 +4,9 @@ import styles from "./Footer.module.css"; // For styling in the next step
 
 export default function Footer() {
   return (
+    
     <footer className={styles.footer}>
+      
       <div className={styles.container}>
         
         {/* The orange decorative line */}
