@@ -164,7 +164,6 @@
     position: absolute; 
     top: -75px; 
     left: var(--padding-container-desktop); 
-    transform: translateX(-32%);
     margin-bottom: 0; /* Reset mobile margin */
   }
 
